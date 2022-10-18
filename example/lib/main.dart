@@ -132,13 +132,6 @@ class _PhoneCheckAppState extends State<PhoneCheckHome> {
     );
   }
 
-  Widget logo() {
-    return Center(
-      child: Image.asset('assets/images/1024.png',
-          width: 175.0, height: 100.0, fit: BoxFit.cover),
-    );
-  }
-
   // A text field that validates that the text is a phone number.
   TextFormField validatingTextField() {
     return TextFormField(
