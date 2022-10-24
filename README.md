@@ -62,7 +62,7 @@ To add the package `silentauth_sdk_flutter` to your app project:
 
 ## Usage
 
-* Is the [device eligible](https://developer.tru.id/docs/reference/utils#tag/coverage/operation/get-public-coverage-by-device-ip) for silent authentication?
+* Is the device eligible for silent authentication?
 
 ```dart
 import 'package:silentauth_sdk_flutter/silentauth_sdk_flutter.dart';
@@ -90,7 +90,7 @@ import 'package:silentauth_sdk_flutter/silentauth_sdk_flutter.dart';
 
 ```
 
-* How to open a check URL return by the [PhoneCheck API](https://developer.tru.id/docs/phone-check) or [SubscriberCheck API](https://developer.tru.id/docs/subscriber-check)
+* How to open a check URL 
 ```dart
 import 'package:silentauth_sdk_flutter/silentauth_sdk_flutter.dart';
 
