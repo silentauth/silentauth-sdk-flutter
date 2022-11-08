@@ -1,7 +1,7 @@
 PODS:
   - Flutter (1.0.0)
   - silentauth-sdk-ios (1.0.1)
-  - silentauth_sdk_flutter (1.0.2):
+  - silentauth_sdk_flutter (1.0.3):
     - Flutter
     - silentauth-sdk-ios (= 1.0.1)
 
@@ -22,7 +22,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   silentauth-sdk-ios: 8ef7bc15f6aa24a66e4625053abb668587867bd2
-  silentauth_sdk_flutter: 4319dc7c3c3105292462812e35f3a448f4d2c408
+  silentauth_sdk_flutter: a549a2ace3d006c6ca5ada4c68b493d219d3a90d
 
 PODFILE CHECKSUM: cc1f88378b4bfcf93a6ce00d2c587857c6008d3b
 
