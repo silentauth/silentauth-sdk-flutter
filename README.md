@@ -68,28 +68,29 @@ To add the package `silentauth_sdk_flutter` to your app project:
 import 'package:silentauth_sdk_flutter/silentauth_sdk_flutter.dart';
 
 // ...
+// retrieve access token with coverage scope from back-end
+   var token = ...
+// open the device_ip public API endpoint
    SilentauthSdkFlutter sdk = SilentauthSdkFlutter();
-
-   Map reach = await sdk.openWithDataCellular(
-      "https://eu.api.silentauth.com/public/coverage/v0.1/device_ip", false);
+   try {
+   Map reach = await sdk.openWithDataCellularAndAccessToken(
+   "https://eu.api.silentauth.com/coverage/v0.1/device_ip", token, true);
    if (reach.containsKey("error")) {
-      // Network connectivity error
+// Network connectivity error
    } else if (reach.containsKey("http_status")) {
-      if (reach["http_status"] == 200 && reach["response_body"] != null) {
-         Map<dynamic, dynamic>body = reach["response_body"];
-         Coverage cv = Coverage.fromJson(body);
+    if (reach["http_status"] == 200 && reach["response_body"] != null) {
+      Map<dynamic, dynamic>body = reach["response_body"];
+      Coverage cv = Coverage.fromJson(body);
       } else if (reach["status"] == 400 && reach["response_body"] != null) {
-         // MNO not supported see ${body.detail}
-      } else if (reach["status"] == 412 && reach["response_body"] != null) {
-         // Not a mobile IP see ${body.detail}
-      } else if (reach["response_body"] != null) {
-         // other error see ${body.detail}
+// MNO not supported see ${body.detail}
+     } else if (reach["status"] == 412 && reach["response_body"] != null) {
+// Not a mobile IP see ${body.detail}
+    } else if (reach["response_body"] != null) {
+// other error see ${body.detail}
       }
-
-   }
-
+    }
+    }
 ```
-
 * How to open a check URL 
 ```dart
 import 'package:silentauth_sdk_flutter/silentauth_sdk_flutter.dart';

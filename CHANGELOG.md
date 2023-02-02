@@ -1,6 +1,11 @@
 # silentauth_sdk_flutter
 # Change Log
-## Version 1.0.3
+## Version 1.0.4
+_2023-02-02_
+**Changes**
+- Increased tru.ID Android and iOS SDK versions
+- New method openWithDataCellularAndAccessToken added
+
 _2022-11-08_
 **Changes**
 - tru.ID Android SDK version update
