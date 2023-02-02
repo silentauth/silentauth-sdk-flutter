@@ -29,6 +29,9 @@ import 'package:http/http.dart' as http;
 import 'package:silentauth_sdk_flutter/silentauth_sdk_flutter.dart';
 
 import 'src/http/mock_client.dart';
+import 'package:crypto/crypto.dart';
+import '.env.dart';
+
 // Set up a local tunnel base url.
 final String baseURL = "YOUR_LOCAL_TUNNEL_URL";
 
@@ -232,14 +235,34 @@ class _PhoneCheckAppState extends State<PhoneCheckHome> {
     );
   }
 
+  // Get Coverage Access Token
+
+  Future<TokenResponse>getCoverageAccessToken() async {
+    var signature = sha256.convert(utf8.encode(RTA_KEY));
+    final response = await http.get(
+      Uri.parse('$RTA_URL/coverage_access_token'),
+      headers: <String, String>{
+        'x-rta': signature.toString(),
+      },
+    );
+    if (response.statusCode == 200) {
+      return TokenResponse.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to get coverage access token: No access token');
+    }
+  }
+
+
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<CheckStatus> executeFlow(String phoneNumber) async {
     print("[Reachability] - Start");
     var canMoveToNextStep = false;
+    var tokenResponse = await getCoverageAccessToken();
+    var token = tokenResponse.accessToken;
     SilentauthSdkFlutter sdk = SilentauthSdkFlutter();
     try {
-      Map reach = await sdk.openWithDataCellular(
-          "https://eu.api.silentauth.com/public/coverage/v0.1/device_ip", false);
+      Map reach = await sdk.openWithDataCellularAndAccessToken(
+          "https://eu.api.silentauth.com/coverage/v0.1/device_ip", token, true);
       print("isReachable = $reach");
       if (reach.containsKey("error")) {
         throw Exception(
@@ -347,6 +370,16 @@ Future<CheckStatus> exchangeCode(
     return exchangeCheckRes;
   } else {
     throw Exception('Failed to exchange Code');
+  }
+}
+
+class TokenResponse {
+  final String accessToken;
+  TokenResponse({required this.accessToken});
+  factory TokenResponse.fromJson(Map<dynamic, dynamic>json) {
+    return TokenResponse(
+        accessToken: json['access_token']
+    );
   }
 }
 

@@ -149,7 +149,7 @@ packages:
     source: hosted
     version: "3.1.0"
   crypto:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: crypto
       url: "https://pub.dartlang.org"
@@ -388,7 +388,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.0.2"
+    version: "1.0.3"
   sky_engine:
     dependency: transitive
     description: flutter
