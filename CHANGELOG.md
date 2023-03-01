@@ -1,14 +1,19 @@
 # silentauth_sdk_flutter
 # Change Log
+## Version 1.0.5
+_2023-03-01_
+**Changes**
+- Increased silentAuth iOS SDK versions
+
 ## Version 1.0.4
 _2023-02-02_
 **Changes**
-- Increased tru.ID Android and iOS SDK versions
+- Increased silentAuth Android and iOS SDK versions
 - New method openWithDataCellularAndAccessToken added
 
 _2022-11-08_
 **Changes**
-- tru.ID Android SDK version update
+- silentAuth Android SDK version update
 - Android target SDK increased to 31 (Android 12)
 
 **Changes**
