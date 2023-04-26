@@ -1,5 +1,9 @@
 # silentauth_sdk_flutter
 # Change Log
+## Version 1.0.6
+_2023-04-25_
+**Changes**
+- Increased silentAuth Android SDK version
 ## Version 1.0.5
 _2023-03-01_
 **Changes**
