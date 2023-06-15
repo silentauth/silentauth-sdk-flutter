@@ -30,7 +30,6 @@ import 'package:silentauth_sdk_flutter/silentauth_sdk_flutter.dart';
 
 import 'src/http/mock_client.dart';
 import 'package:crypto/crypto.dart';
-import '.env.dart';
 
 // Set up a local tunnel base url.
 final String baseURL = "YOUR_LOCAL_TUNNEL_URL";
@@ -238,11 +237,10 @@ class _PhoneCheckAppState extends State<PhoneCheckHome> {
   // Get Coverage Access Token
 
   Future<TokenResponse>getCoverageAccessToken() async {
-    var signature = sha256.convert(utf8.encode(RTA_KEY));
     final response = await http.get(
-      Uri.parse('$RTA_URL/coverage_access_token'),
+      Uri.parse('$baseURL/coverage-access-token'),
       headers: <String, String>{
-        'x-rta': signature.toString(),
+        'Content-Type': 'application/json; charset=UTF-8',
       },
     );
     if (response.statusCode == 200) {
@@ -258,7 +256,7 @@ class _PhoneCheckAppState extends State<PhoneCheckHome> {
     print("[Reachability] - Start");
     var canMoveToNextStep = false;
     var tokenResponse = await getCoverageAccessToken();
-    var token = tokenResponse.accessToken;
+    var token = tokenResponse.token;
     SilentauthSdkFlutter sdk = SilentauthSdkFlutter();
     try {
       Map reach = await sdk.openWithDataCellularAndAccessToken(
@@ -374,11 +372,13 @@ Future<CheckStatus> exchangeCode(
 }
 
 class TokenResponse {
-  final String accessToken;
-  TokenResponse({required this.accessToken});
+  final String token;
+  final String url;
+  TokenResponse({required this.token, required this.url});
   factory TokenResponse.fromJson(Map<dynamic, dynamic>json) {
     return TokenResponse(
-        accessToken: json['access_token']
+        token: json['token'],
+        url: json['url']
     );
   }
 }
