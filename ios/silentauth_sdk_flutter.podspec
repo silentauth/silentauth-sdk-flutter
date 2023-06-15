@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'silentauth_sdk_flutter'
-  s.version          = '1.0.7'
+  s.version          = '1.0.8'
   s.summary          = 'SilentAuth Flutter Plugin.'
   s.description      = <<-DESC
 A new flutter plugin project.
