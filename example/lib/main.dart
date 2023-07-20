@@ -29,7 +29,6 @@ import 'package:http/http.dart' as http;
 import 'package:silentauth_sdk_flutter/silentauth_sdk_flutter.dart';
 
 import 'src/http/mock_client.dart';
-import 'package:crypto/crypto.dart';
 
 // Set up a local tunnel base url.
 final String baseURL = "YOUR_LOCAL_TUNNEL_URL";
