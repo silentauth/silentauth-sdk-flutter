@@ -1,10 +1,15 @@
 # silentauth_sdk_flutter
 # Change Log
+## Version 1.0.10
+_2023-08-16_
+**Changes**
+- Bump silentauth-sdk-android dependency to v1.0.6.
+- Bump silentauth-sdk-ios dependency to v1.0.6.
 ## Version 1.0.9
 _2023-07-20_
 **Changes**
-- Bump silentauth-android-sdk dependency to v1.0.5.
-- Bump silentauth-ios-sdk dependency to v1.0.5.
+- Bump silentauth-sdk-android dependency to v1.0.5.
+- Bump silentauth-sdk-ios dependency to v1.0.5.
 - Android target increased to Android 13
 ## Version 1.0.8
 _2023-06-15_
