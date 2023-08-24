@@ -1,5 +1,9 @@
 # silentauth_sdk_flutter
 # Change Log
+## Version 1.0.11
+_2023-08-24_
+**Changes**
+- Bump silentauth-sdk-ios dependency to v1.0.7.
 ## Version 1.0.10
 _2023-08-16_
 **Changes**
