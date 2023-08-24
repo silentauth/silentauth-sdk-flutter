@@ -31,7 +31,7 @@ import 'package:silentauth_sdk_flutter/silentauth_sdk_flutter.dart';
 import 'src/http/mock_client.dart';
 
 // Set up a local tunnel base url.
-final String baseURL = "YOUR_LOCAL_TUNNEL_URL";
+final String baseURL = "https://b4d7-176-54-239-162.ngrok-free.app";
 
 void main() {
   runApp(PhoneCheckApp());
