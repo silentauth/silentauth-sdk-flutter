@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'silentauth_sdk_flutter'
-  s.version          = '1.0.12'
+  s.version          = '1.0.13'
   s.summary          = 'SilentAuth Flutter Plugin.'
   s.description      = <<-DESC
 A new flutter plugin project.
@@ -15,7 +15,7 @@ A new flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'silentauth-sdk-ios', '1.0.9'
+  s.dependency 'silentauth-sdk-ios', '1.0.10'
   s.platform = :ios, '13.0'
 
   # Flutter.framework does not contain a i386 slice.
